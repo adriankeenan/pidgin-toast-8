@@ -3,7 +3,7 @@ pidgin-toast-8
 Pidgin plugin for windows 8 toast notifications using console-toast-8.
 Toast notifications contain the senders alias, avatar and leading message content.
 
-![pyconvert screenshot](http://adriankeenan.co.uk/stuff/pidgin-toast-8.png)
+![pidgin-toast-8 screenshot](http://adriankeenan.co.uk/media/pidgin-toast-8.png)
 
 Install
 =======

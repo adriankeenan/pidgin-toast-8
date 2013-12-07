@@ -21,7 +21,7 @@ sub plugin_init {
 }
 sub plugin_load {
     my $plugin = shift;
-    
+
     $convs_handle = Purple::Conversations::get_handle();
     Purple::Signal::connect($convs_handle, "receiving-im-msg", $plugin, \&got_msg, "yyy");
     Purple::Debug::info("pidgin-toast-8", "plugin_load() - Test Plugin Loaded.\n");
@@ -33,7 +33,7 @@ sub plugin_unload {
 
 sub got_msg {
     my ($account, $who, $msg, $conv, $flags) = @_;
-    
+
     #get buddy name and avatar path
     @accounts = Purple::Accounts::get_all();
     for ($i = 0; $i <= $#accounts; $i++) {
@@ -52,24 +52,24 @@ sub got_msg {
     #html decode and stip tags (only for basic html)
     $msg = decode_entities($msg);
     while ($msg =~ s/<\S[^<>]*(?:>|$)//gs) {};
-    
+
     #show toast notification if the conversation window does not have focus
     if (!$conv->has_focus()) {
-        show_toast(sprintf("%s says...", $displayName), $msg, $iconPath);
+        show_toast($displayName, $msg, $iconPath);
     }
 }
 
 sub show_toast {
     my($title, $body, $img) = @_;
-    
+
     #get path to working_dir\pidgin.ico
     my $dir = getcwd;
     $dir =~ tr|/|\\|;
     my $icon = sprintf("%s\\pidgin.ico", $dir);
-    
+
     #escape quotes in the message
     $body =~ s/"/\\"/g;
-    
+
     #run console-toast8
     system(sprintf("console-toast-8.exe --template ToastImageAndText02 --title \"%s\" --line1 \"%s\" --img \"%s\" --icon \"%s\"", $title, $body, $img, $icon));
 }
