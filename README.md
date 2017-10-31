@@ -12,7 +12,7 @@ Firstly, big thanks to [forward2mobile](http://code.google.com/p/forward2mobile/
 Secondly, this project displays toasts by invoking console-toast-8 via the console, so you will need to clone and build that too.
 
 1. Install a flavour of Perl for Windows if you don't have it already:
-    - [Strawberry Perl 5.10.1.5](http://strawberry-perl.googlecode.com/files/strawberry-perl-5.10.1.5.msi) - Pidgin 2.9.x can only work with Strawberry Perl version 5.10.x.
+    - [Strawberry Perl 5.10.1.5](http://strawberryperl.com/download/5.10.1.5/strawberry-perl-5.10.1.5.msi) - Pidgin 2.9.x can only work with Strawberry Perl version 5.10.x.
     - [ActivePerl 5.10.1.1007 (google search)](http://www.google.com/search?q=ActivePerl-5.10.1.1007-MSWin32-x86-291969.msi) -  Again Pidgin 2.9.x can only work with ActivePerl version 5.10.x (32bit).
 2. Restart Pidgin and go to Help:Build Information in the menu. Scroll to the bottom and check for "Perl: Enabled". If Perl is disabled, restart and/or reinstall Pidgin or reinstall Perl until it is enabled.
 3. Save the .pl script under C:\Users\your_user\AppData\Roaming\\.purple\plugins (plugins dir might not exist yet).
