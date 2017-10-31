@@ -9,16 +9,18 @@ use HTML::Entities;
     perl_api_version    => 2,
     name                => "pidgin-toast-8",
     version             => "0.1",
-    summary             => "Display windows 8 notifications for new messages.",
-    description         => "Show notifications native to windows 8 using the console-toast-8 script.",
+    summary             => "Display Windows 8 notifications for new messages.",
+    description         => "Show notifications native to Windows 8 using the console-toast-8 script.",
     author              => "Adrian Keenan",
     url                 => "http://adriankeenan.co.uk",
     load                => "plugin_load",
     unload              => "plugin_unload"
 );
+
 sub plugin_init {
     return %PLUGIN_INFO;
 }
+
 sub plugin_load {
     my $plugin = shift;
 
@@ -26,6 +28,7 @@ sub plugin_load {
     Purple::Signal::connect($convs_handle, "receiving-im-msg", $plugin, \&got_msg, "yyy");
     Purple::Debug::info("pidgin-toast-8", "plugin_load() - Test Plugin Loaded.\n");
 }
+
 sub plugin_unload {
     my $plugin = shift;
     Purple::Debug::info("pidgin-toast-8", "plugin_unload() - Test Plugin Unloaded.\n");
@@ -49,7 +52,7 @@ sub got_msg {
         $iconPath = "";
     }
 
-    #html decode and stip tags (only for basic html)
+    #html decode and strip tags (only for basic html)
     $msg = decode_entities($msg);
     while ($msg =~ s/<\S[^<>]*(?:>|$)//gs) {};
 
